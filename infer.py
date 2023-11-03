@@ -26,7 +26,7 @@ def main():
     parser.add_argument('-style', default=0, type=int, help='from 0 to 1')
     parser.add_argument('-dataset', default='em', type=str, help='dataset')
 
-    opt = parser.parse_args()
+    opt = parser.parse_args(args=[])
     torch.manual_seed(opt.seed)
 
     tokenizer = BartTokenizer.from_pretrained('facebook/bart-large')
