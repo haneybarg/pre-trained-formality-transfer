@@ -46,7 +46,9 @@ def main():
     parser.add_argument('-log_step', default=100, type=int, help='print logs every x step')
     parser.add_argument('-eval_step', default=1000, type=int, help='evaluate every x step')
 
-    opt = parser.parse_args(args=[])
+    opt = parser.parse_args()
+    print('checkpoints/{}_{}_{}_{}.chkpt'.format(
+                    opt.model, opt.dataset, opt.order, opt.style))
 
     print('[Info]', opt)
     torch.manual_seed(opt.seed)
