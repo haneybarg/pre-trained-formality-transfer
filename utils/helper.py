@@ -55,7 +55,7 @@ def cal_sc_loss(out, idx, cls, tokenizer, style):
 
     tgt = []
     for i, s in zip(idx.cpu(), sample_idx):
-        e = torch.arange(len(s))[s.eq(tokenizer.eos_token_id)]
+        e = torch.arange(len(s), device=s.device)[s.eq(tokenizer.eos_token_id)]
         e = e[0] if 0<len(e) and 4<e[0]<i else i-1
         tgt.append(s[:e].cpu().tolist())
     tgt_idx = collate_fn(tgt).to(device)
@@ -79,9 +79,9 @@ def cal_bl_loss(out, tgt, idx, tokenizer):
 
     tgt_sam, tgt_gre, tgt_ref = [], [], []
     for i, s, g, t in zip(idx.cpu(), sample_idx, greedy_idx, tgt):
-        s_e = torch.arange(len(s))[s.eq(tokenizer.eos_token_id)]
+        s_e = torch.arange(len(s), device=s.device)[s.eq(tokenizer.eos_token_id)]
         s_e = s_e[0] if 0<len(s_e) and 0<s_e[0]<i else i-1
-        g_e = torch.arange(len(g))[g.eq(tokenizer.eos_token_id)]
+        g_e = torch.arange(len(g), device=g.device)[g.eq(tokenizer.eos_token_id)]
         g_e = g_e[0] if 0<len(g_e) and 0<g_e[0]<i else i-1
 
         tgt_sam.append(s[:s_e].cpu().tolist())
@@ -135,7 +135,7 @@ def evaluate(model, valid_loader, loss_fn,
 
             tgt = []
             for i in idxs:
-                e = torch.arange(len(i))[i.eq(tokenizer.eos_token_id)]
+                e = torch.arange(len(i), device=i.device)[i.eq(tokenizer.eos_token_id)]
                 e = e[0] if 0<len(e) and e[0]<30 else 30
                 tgt.append(i[:e].cpu().tolist())
             tgt = collate_fn(tgt).to(device)
