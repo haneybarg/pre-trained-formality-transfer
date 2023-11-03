@@ -6,11 +6,11 @@
 
 python train.py -style 0 -ratio 1.0 -dataset $1 -order $2.0 -$3 -$4
 python infer.py -style 0 -dataset $1 -order $2.0
-rm checkpoints/bart_$1_$2.0_0.chkpt
+# rm checkpoints/bart_$1_$2.0_0.chkpt
 
 python train.py -style 1 -ratio 1.0 -dataset $1 -order $2.0 -$3 -$4
 python infer.py -style 1 -dataset $1 -order $2.0
-rm checkpoints/bart_$1_$2.0_1.chkpt
+# rm checkpoints/bart_$1_$2.0_1.chkpt
 
 echo "----------------Style----------------"
 python classifier/test.py -dataset $1 -order $2.0

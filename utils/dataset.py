@@ -15,11 +15,11 @@ def read_data(dataset, style, max_len, prefix,
         domain = tokenizer.encode(domain, add_special_tokens=False)[0]
 
     if style == 0:
-        src_file = '../data/{}/{}.0'.format(dataset, prefix)
-        tgt_file = '../data/{}/{}.1'.format(dataset, prefix)
+        src_file = 'data/{}/{}.0'.format(dataset, prefix)
+        tgt_file = 'data/{}/{}.1'.format(dataset, prefix)
     else:
-        src_file = '../data/{}/{}.1'.format(dataset, prefix)
-        tgt_file = '../data/{}/{}.0'.format(dataset, prefix)
+        src_file = 'data/{}/{}.1'.format(dataset, prefix)
+        tgt_file = 'data/{}/{}.0'.format(dataset, prefix)
 
     src_seq, tgt_seq = [], []
     with open(src_file, 'r') as f1, open(tgt_file, 'r') as f2:
