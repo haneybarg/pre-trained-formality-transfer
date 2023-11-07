@@ -47,7 +47,7 @@ def main():
     with open('./outputs/bart_{}.1.txt'.format(opt.dataset),'r') as f:
         for line in f.readlines():
             test_src.append(tokenizer.encode(line.strip())[:opt.max_len])
-    with open('./outputs/bart_{}.0.txt'.format(opt.dataset),'r') as f:
+    with open('./outputs/bart_{}_0.0.0.0.txt'.format(opt.dataset),'r') as f:
        for line in f.readlines():
            test_tgt.append(tokenizer.encode(line.strip())[:opt.max_len])
 
