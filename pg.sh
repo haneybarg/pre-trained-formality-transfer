@@ -18,7 +18,7 @@ python utils/tokenizer.py data/em/test/formal.ref2 data/em/original_ref/formal.r
 python utils/tokenizer.py data/em/test/formal.ref3 data/em/original_ref/formal.ref3 False
 
 python utils/tokenizer.py outputs/bart_$1.0.txt outputs/bart_$1_$2.0.0 False
-perl utils/multi-bleu.perl data/$1/original_ref/$5.ref < outputs/bart_$1_$2.0.1
+perl utils/multi-bleu.perl data/$1/original_ref/$5.ref < outputs/bart_$1_$2.0.0
 
 # echo "----------------BLEURT----------------"
 # python utils/cal_bleurt.py data/outputs/bart_$1_$2.0.0 data/outputs/bart_$1_$2.0.1 \

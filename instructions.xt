@@ -6,3 +6,6 @@
 # install bleurt https://github.com/google-research/bleurt#installation
 # upload blert-128 model tar
 # check this https://github.com/laihuiyuan/pre-trained-formality-transfer/issues/9
+# use their output if you want to reproduce things
+# python3 -m pip install tensorflow[and-cuda]
+# when running your test data, use test_reference folders
