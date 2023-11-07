@@ -22,10 +22,10 @@ device = 'cuda' if cuda.is_available() else 'cpu'
 special_tokens = [{'bos_token': '<bos>'},
                   {'eos_token': '<eos>'}, {'sep_token': '<sep>'},
                   {'pad_token': '<pad>'}, {'unk_token': '<unk>'}]
-tokenizer = BartTokenizer.from_pretrained('facebook/bart-large')
-# tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-# for x in special_tokens:
-#     tokenizer.add_special_tokens(x)
+# tokenizer = BartTokenizer.from_pretrained('facebook/bart-large')
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+for x in special_tokens:
+    tokenizer.add_special_tokens(x)
 
 
 def main():
