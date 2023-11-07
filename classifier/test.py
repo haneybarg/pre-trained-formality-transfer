@@ -50,6 +50,8 @@ def main():
     with open('./outputs/bart_{}.0.txt'.format(opt.dataset),'r') as f:
        for line in f.readlines():
            test_tgt.append(tokenizer.encode(line.strip())[:opt.max_len])
+
+    test_src = []
     print('[Info] {} instances from src test set'.format(len(test_src)))
     print('[Info] {} instances from tgt test set'.format(len(test_tgt)))
     test_loader = SCIterator(test_src, test_tgt, opt, tokenizer.pad_token_id)
@@ -58,8 +60,9 @@ def main():
     model = TextCNN(opt.embed_dim, len(tokenizer), filter_sizes,
                     num_filters, None, dropout=opt.dropout)
     model.to(device).eval()
-    model.load_state_dict(torch.load('./checkpoints/textcnn_{}.chkpt'.format(
-        opt.dataset)))
+    model.load_state_dict(torch.load('./checkpoints/textcnn_em_gpt2.chkpt'))
+    # model.load_state_dict(torch.load('./checkpoints/textcnn_{}.chkpt'.format(
+    #     opt.dataset)))
 
     total_num = 0.
     total_acc = 0.
