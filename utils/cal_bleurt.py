@@ -18,7 +18,7 @@ def cal_bleurt(file0, file1):
             refs = []
             for line in fin.readlines():
                 refs.append(line.strip())
-            scores.extend(scorer.score(refs, hyps))
+            scores.extend(scorer.score(references=refs, candidates=hyps))
     return scores
 
 scores = []
