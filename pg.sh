@@ -19,5 +19,5 @@ perl utils/multi-bleu.perl data/$1/original_ref/$5.ref < outputs/bart_$1_$2.0.0
 
 echo "----------------BLEURT----------------"
 python utils/cal_bleurt.py outputs/bart_$1_$2.0.0 outputs/bart_$1_$2.0.1 \
-                         data/$1/test/$5.ref data/$1/test/$6.ref
+                         data/$1/test/$5 data/$1/test/$6.ref
 
