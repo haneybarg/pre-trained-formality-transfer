@@ -5,7 +5,7 @@
 # python3 ; import nltk nltk.download('punkt')
 # upload data.tar (in large data folder)
 # install bleurt https://github.com/google-research/bleurt#installation
-# upload blert-128 model tar
+# upload blert-128 model tar and put in checkpoints/
 # check this https://github.com/laihuiyuan/pre-trained-formality-transfer/issues/9
 # use their output if you want to reproduce things
 # python3 -m pip install tensorflow[and-cuda]

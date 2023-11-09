@@ -4,7 +4,7 @@ import sys
 from bleurt import score
 
 
-checkpoint = '../checkpoints/bleurt-base-128'
+checkpoint = 'checkpoints/bleurt-base-128'
 scorer = score.BleurtScorer(checkpoint)
 
 def cal_bleurt(file0, file1):
