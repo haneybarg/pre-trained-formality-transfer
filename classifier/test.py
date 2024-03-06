@@ -30,6 +30,8 @@ for x in special_tokens:
 
 def main():
     parser = argparse.ArgumentParser('Evaluating Style Strength')
+    parser.add_argument('-data', type=str, help='source dataset')
+
     parser.add_argument('-order', default=0, type=str, help='order')
     parser.add_argument('-style', default=0, type=int, help='from 0 to 1')
     parser.add_argument('-max_len', default=50, type=int, help='max tokens in a batch')
@@ -42,12 +44,13 @@ def main():
 
     opt = parser.parse_args()
     torch.manual_seed(opt.seed)
+    print(opt.dataset)
 
     test_src, test_tgt = [], []
     with open('./outputs/bart_{}.1.txt'.format(opt.dataset),'r') as f:
         for line in f.readlines():
             test_src.append(tokenizer.encode(line.strip())[:opt.max_len])
-    with open('./outputs/bart_{}_0.0.0.0.txt'.format(opt.dataset),'r') as f:
+    with open(opt.data.format(opt.dataset),'r') as f:
        for line in f.readlines():
            test_tgt.append(tokenizer.encode(line.strip())[:opt.max_len])
 

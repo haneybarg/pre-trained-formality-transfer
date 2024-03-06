@@ -45,7 +45,7 @@ def main():
         opt.model, opt.dataset, opt.order, opt.style)))
 
     src_seq = []
-    with open('./data/{}/test.{}'.format(opt.dataset, opt.style)) as fin:
+    with open('data/{}/test.{}'.format(opt.dataset, opt.style)) as fin:
         for line in fin.readlines():
             src_seq.append(line.strip())
 
